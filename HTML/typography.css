@@ -10,7 +10,7 @@ body {
 
 .termkitCommandView pre,
 .termkitOutputView .widgetHex {
-  font-family: "BitStream Vera Sans Mono", "Lucida Console", monospace;
+  font-family: "BitStream Vera Sans Mono", "Lucida Console", "monospace";
   font-size: inherit;
   font-size: 87.5%;
 }

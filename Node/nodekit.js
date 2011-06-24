@@ -7,7 +7,7 @@ require.paths.unshift(__dirname+'/../Shared');
 
 // Load requirements.
 var http = require('http'),  
-    io = require('socket.io'), //or should it be ./socket.io-node? - floppy
+    io = require('socket.io'),
     router = require("router"),
     connect = require('connect');
 
