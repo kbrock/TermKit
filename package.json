@@ -1,0 +1,22 @@
+{
+  "author": "",
+  "name": "termkit",
+  "description": "a nextgen shellish webapp",
+  "version": "0.0.0",
+  "homepage": "http://github.com/floby/TermKit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Floby/TermKit.git"
+  },
+  "main": "Node/nodekit.js",
+  "engines": {
+    "node": "0.4"
+  },
+  "bin": "Node/nodekit.js",
+  "dependencies": {
+    "connect": "1.2",
+    "socket.io":"0.6",
+    "mime":"1.2"
+  },
+  "devDependencies": {}
+}

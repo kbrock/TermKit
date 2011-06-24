@@ -15,3 +15,6 @@ TermKit.app
 *.pbxuser
 *.perspectivev3
 
+# modules managed by npm
+node_modules
+

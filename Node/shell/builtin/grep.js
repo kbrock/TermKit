@@ -85,10 +85,29 @@ exports.main = function (tokens, pipes, exit, environment) {
           buffered = json = true;
           break;
       }
-
+      //still want this?
       // Remove content-length, output rest.
       headers.set('Content-Length', null);
       pipes.dataOut.write(headers.generate());
+      // /still want this? floppy
+        // Filter values recursively.
+        data = grep(data, pattern);
+        // Guard against no line matches -- Thanks 'phaseq'
+        if( data == null ) {
+            data = new Array();
+        }
+        if (json) {
+          // Serialize
+          data = JSON.stringify(data);
+        }
+        else {
+          // Join lines.
+          data = data.join("\n");
+        }
+        
+        // Pipe out.
+        pipes.dataOut.write(data);
+      },
       
       return buffered;
     },
