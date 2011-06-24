@@ -263,6 +263,37 @@ exports.plugins.code.supports = function (headers) {
 }
 
 /**
+ * Audio formatter.
+ */
+exports.plugins.audio = function (headers, out) {
+  // Inherit.
+  exports.plugin.apply(this, arguments);
+};
+
+exports.plugins.audio.prototype = extend(new exports.plugin(), {
+
+  begin: function (headers) {
+	this.out.add(null, view.html('output'));
+	
+    // Buffered output.
+    return true;
+  },
+
+  data: function (data) {
+	var url = 'data:' + this.headers.get('Content-Type') + ';base64,' + data.toString('base64'),
+        html = '<audio controls="controls" autoplay="autoplay" src="'+ url +'"></audio>';
+
+    this.out.update('output', { contents: html }, true);
+  },
+
+});
+
+exports.plugins.audio.supports = function (headers) {
+  var type = headers.get('Content-Type');
+  return !!(/^audio\//(type)) * 1;
+};
+
+/**
  * Image formatter.
  */
 exports.plugins.image = function (headers, out) {
